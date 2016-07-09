@@ -143,12 +143,38 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Request $request
+     * 更新视频信息
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postRecordVideoModify(Request $request)
+    {
+        $this->validate($request, [
+            'vid' => 'required|integer',
+            'name' => 'required|max:255'
+        ]);
+
+        $record_video_id = $request->input('vid');
+        $play_info = Playinfo::select('id', 'uid')->where('id', $record_video_id)->first();
+        //如果无数据自动跳转
+        if (!$play_info) {
+            return redirect()->route('admin_record_list');
+        }
+
+        Playinfo::where('id', $record_video_id)->update([
+            'name' => $request->input('name')
+        ]);
+
+        return redirect()->route('admin_record_manage');
+    }
+
+    /**
      * 更新录制视频信息
      * @param $play_info
      * @param $record_video_id
      * @return mixed
      */
-    protected function modifyRecordVideoInfo($play_info, $record_video_id)
+    private function modifyRecordVideoInfo($play_info, $record_video_id)
     {
         $json = Lecloud::getPlayInfo($play_info['activityId']);
 
@@ -167,6 +193,7 @@ class AdminController extends Controller
                 //录制视频超过12小时无数据删除
                 if ((time() - $play_info['ctime']) > 86400) {
                     Playinfo::where('id', $record_video_id)->delete();
+                    return redirect()->route('admin_record_list');
                 }
             }
         } catch (\Exception $e) {
@@ -182,7 +209,7 @@ class AdminController extends Controller
      * @param $record_video_id
      * @return mixed
      */
-    public function modifyRecordVideoCover($play_info, $record_video_id)
+    private function modifyRecordVideoCover($play_info, $record_video_id)
     {
         $json = Lecloud::getVideoImage($play_info['videoId']);
         //更新cover
@@ -236,8 +263,8 @@ class AdminController extends Controller
      */
     public function postStopActivity(Request $request)
     {
-        $liveinfo = Liveinfo::select('activityId')->where('uid', $request->input('uid'))->first();
-        $activityId = $liveinfo->activityId;
+        $live_info = Liveinfo::select('activityId')->where('uid', $request->input('uid'))->first();
+        $activityId = $live_info->activityId;
         Lecloud::stopActivity($activityId);
         Liveinfo::where('uid', $request->input('uid'))->delete();
 

@@ -12,7 +12,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserTableSeeder::class);
+        $this->call(CategoryTableSeeder::class);
+    }
+}
+
+class CategoryTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('category')->delete();
+        Category::create([
+            'uri' => 'default',
+            'name' => 'Default',
+            'banner' => 'http://placehold.it/1600x680',
+            'cover' => 'http://placehold.it/185x260'
+        ]);
     }
 }
 

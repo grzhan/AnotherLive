@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="sub-header">
             <h3 class="room-title">
-                <img src="//secure.gravatar.com/avatar/{{ md5($email) }}?s=60"
+                <img src="//cdn.v2ex.com/gravatar/{{ md5($email) }}?s=60"
                      class="live-title-avatar">
                 {{ $title }}
                 <span class="live-sub-title">
@@ -24,7 +24,7 @@
                         <a class="btn btn-primary btn-sm">
                             FLASH（延迟低）
                         </a>
-                        <a href="{{ url('/u/'.$id.'?m=mse') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('/u/'.$id) }}" class="btn btn-secondary btn-sm">
                             MSE（MAC不会煎鸡蛋了）
                         </a>
                     </div>

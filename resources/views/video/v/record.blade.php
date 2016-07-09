@@ -15,7 +15,7 @@
                 <div class="card shadow-card live-card" id="video_card"></div>
                 <div class="card shadow-card" id="video_card">
                     <div style="display: flex;align-items: center;">
-                        <img src="//secure.gravatar.com/avatar/{{ md5($author_info['email']) }}?s=60"
+                        <img src="//cdn.v2ex.com/gravatar/{{ md5($author_info['email']) }}?s=60"
                              class="live-title-avatar" style="margin: .4em">
                         <span style="padding: 0 .4em">用户: <a href="#">{{ $author_info['name'] }}</a></span>
                         <span style="padding: 0 .4em">发布于: {{ $video_info['created_at'] }}</span>
@@ -33,7 +33,7 @@
     <script src="{{ url('/js/vendor/bcloud.js') }}"></script>
     <script>
         var player = new CloudVodPlayer();
-        player.init({uu: "{{ $uu }}", vu: "{{ $video_info['videoUnique'] }}"}, 'video_card');
+        player.init({uu: "{{ $uu }}", vu: "{{ $video_info['videoUnique'] }}","pu":"987B0D09E0","auto_play":1}, 'video_card');
         $(document).ready(function () {
             var playerHeight = $(".live-card").width() * 0.5625;
             $(".live-card").css("height", playerHeight + "px");
