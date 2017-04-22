@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('css')
-    <link href="//static.niconico.in/live/css/video-js.min.css" rel="stylesheet">
+    <link href="{{ url('/js/vendor/videojs/video-js.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -34,7 +34,7 @@
                             FLASH（延迟低）
                         </a>
                         <a class="btn btn-primary btn-sm">
-                            MSE（MAC不会煎鸡蛋了）
+                            MSE （NEED TO BE FIXED）
                         </a>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
 @section('js')
     <script src="{{ url('/js/vendor/realtime.browser.min.js') }}"></script>
     <script src="{{ url('/js/danmaku.js') }}"></script>
-    <script src="//static.niconico.in/live/js/video.min.js"></script>
-    <script src="//static.niconico.in/live/js/videojs-contrib-hls.min.js"></script>
+    <script src="{{ url('/js/vendor/videojs/video.min.js') }}"></script>
+    <script src="{{ url('/js/vendor/videojs/videojs-contrib-hls.min.js') }}"></script>
     <script>
         danmakuInit('{{ $appId }}', '{{ $roomId }}');
         var player = videojs('HLS-video');

@@ -25,7 +25,7 @@
                             FLASH（延迟低）
                         </a>
                         <a href="{{ url('/u/'.$id) }}" class="btn btn-secondary btn-sm">
-                            MSE（MAC不会煎鸡蛋了）
+                            MSE（NEED TO BE FIXED）
                         </a>
                     </div>
                 </div>
