@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>{{ isset($title) ? ($title . " - ") : null }}AnotherLive</title>
+    <title>{{ isset($title) ? ($title . " - ") : null }} SHUOSC Live</title>
     <link rel="shortcut icon" href="{{ url('/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="//cdn.bootcss.com/tether/1.3.2/css/tether.css">
@@ -17,7 +17,7 @@
 <div class="container-fluid top-bar">
     <nav class="navbar navbar-inverse navbar-fixed-top live-nav-top">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <i class="fa fa-home"></i> AnotherLive
+            <i class="fa fa-home"></i> SHUOSC Live
         </a>
         <ul class="nav navbar-nav">
             <li class="nav-item">
@@ -57,7 +57,7 @@
     @yield('content')
     <div class="container-fluid">
         <footer class="content-footer">
-            © 2016 <a href="https://niconiconi.org" target="_blank">Volio</a> All right reserved
+            © 2016 <a href="https://shuosc.org" target="_blank">SHUOSC</a> All right reserved
         </footer>
     </div>
 </div>

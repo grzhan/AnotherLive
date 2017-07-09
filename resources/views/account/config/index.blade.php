@@ -57,8 +57,7 @@
             </div>
             <div class="card-block">
                 <p>您的账户暂时不能创建直播</p>
-                <p>请Telegram联系开通 <a href="https://telegram.me/VolioLiu"> @VolioLiu</a></p>
-                <p>或者发送邮件至 <a href="mailto:volio.liu@gmail.com"> volio.liu@gmail.com</a> ，附上注册邮箱即可</p>
+                <p>或者邮件至 <a href="mailto:envy518@gmail.com"> envy518@gmail.com </a> ，附上注册邮箱即可</p>
             </div>
         </div>
     @endif
